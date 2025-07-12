@@ -1,0 +1,34 @@
+import { MantineProvider } from "@mantine/core";
+import "@mantine/core/styles.css";
+import { Header } from "./components/Header";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./home/Home";
+import HomeUser from "./home-user/HomeUser";
+import HomeExam from "./home-exam/HomeExam";
+import QuizPage from "./quiz-page/QuizPage";
+
+function AppContent() {
+  return (
+    <div className="static">
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/home/user" element={<HomeUser />} />
+        <Route path="/home/exam" element={<HomeExam />} />
+        <Route path="/quiz/:id" element={<QuizPage />} />
+      </Routes>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <MantineProvider withGlobalStyles withNormalizeCSS>
+      <Router>
+        <AppContent />
+      </Router>
+    </MantineProvider>
+  );
+}
+
+export default App;
