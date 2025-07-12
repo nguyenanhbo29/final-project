@@ -6,6 +6,7 @@ import Home from "./home/Home";
 import HomeUser from "./home-user/HomeUser";
 import HomeExam from "./home-exam/HomeExam";
 import QuizPage from "./quiz-page/QuizPage";
+import HomeResult from "./history-quiz/HomeResult";
 
 function AppContent() {
   return (
@@ -14,6 +15,7 @@ function AppContent() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home/user" element={<HomeUser />} />
+        <Route path="/history" element={<HomeResult />} />
         <Route path="/home/exam" element={<HomeExam />} />
         <Route path="/quiz/:id" element={<QuizPage />} />
       </Routes>

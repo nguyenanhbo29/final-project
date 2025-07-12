@@ -4,10 +4,12 @@ import {
   IconClockPlus,
   IconRosetteDiscountCheck,
 } from "@tabler/icons-react";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+  const navigate = useNavigate();
   return (
-    <div className="py-12 px-20 bg-purple-50">
+    <div className="py-12 px-20 bg-purple-50 h-screen">
       <div className="flex flex-col items-center gap-6">
         <h3 className="text-4xl font-bold bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">
           Luyện Thi Tiếng Anh Online
@@ -18,7 +20,13 @@ export default function Home() {
           và thú vị.
         </p>
         <div className="flex gap-4">
-          <Button>Bắt đầu luyện thi</Button>
+          <Button
+            onClick={() => {
+              navigate("/home/exam");
+            }}
+          >
+            Bắt đầu luyện thi
+          </Button>
           <Button variant="default">Quản lý hệ thống</Button>
         </div>
       </div>
