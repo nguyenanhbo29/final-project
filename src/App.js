@@ -7,6 +7,7 @@ import HomeUser from "./home-user/HomeUser";
 import HomeExam from "./home-exam/HomeExam";
 import QuizPage from "./quiz-page/QuizPage";
 import HomeResult from "./history-quiz/HomeResult";
+import ResultPage from "./quiz-page/ResultPage";
 
 function AppContent() {
   return (
@@ -18,6 +19,7 @@ function AppContent() {
         <Route path="/history" element={<HomeResult />} />
         <Route path="/home/exam" element={<HomeExam />} />
         <Route path="/quiz/:id" element={<QuizPage />} />
+        <Route path="/ket-qua" element={<ResultPage />} />
       </Routes>
     </div>
   );

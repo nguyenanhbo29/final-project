@@ -22,7 +22,7 @@ export default function Home() {
         <div className="flex gap-4">
           <Button
             onClick={() => {
-              navigate("/home/exam");
+              navigate("/home/user");
             }}
           >
             Bắt đầu luyện thi
@@ -75,16 +75,16 @@ export default function Home() {
             <p className="text-gray-600">Câu hỏi</p>
           </div>
           <div className="text-center">
-            <p className="text-2xl text-blue-600 font-bold">1000+</p>
-            <p className="text-gray-600">Câu hỏi</p>
+            <p className="text-2xl text-purple-600 font-bold">500+</p>
+            <p className="text-gray-600">Học viên</p>
           </div>
           <div className="text-center">
-            <p className="text-2xl text-blue-600 font-bold">1000+</p>
-            <p className="text-gray-600">Câu hỏi</p>
+            <p className="text-2xl text-green-600 font-bold">50+</p>
+            <p className="text-gray-600">Bài thi</p>
           </div>
           <div className="text-center">
-            <p className="text-2xl text-blue-600 font-bold">1000+</p>
-            <p className="text-gray-600">Câu hỏi</p>
+            <p className="text-2xl text-red-600 font-bold">95%</p>
+            <p className="text-gray-600">Hài lòng</p>
           </div>
         </div>
       </Card>

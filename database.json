@@ -1,0 +1,98 @@
+{
+  "exams": [
+    {
+      "id": 1,
+      "title": "Bài thi cơ bản",
+      "description": "Bài thi dành cho người mới bắt đầu",
+      "questionsCount": 3,
+      "duration": 30,
+      "levels": ["Dễ", "Trung bình"],
+      "topics": ["Grammar", "Vocabulary"],
+      "passingScore": 8,
+      "type": "trắc nghiệm"
+    },
+    {
+      "id": 2,
+      "title": "Bài thi nâng cao",
+      "description": "Bài thi dành cho người có trình độ cao",
+      "questionsCount": 2,
+      "duration": 45,
+      "levels": ["Trung bình", "Khó"],
+      "topics": ["Grammar", "Vocabulary"],
+      "passingScore": 9,
+      "type": "trắc nghiệm"
+    }
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "examId": 1,
+      "content": "What is the synonym of 'quick'?",
+      "level": "Dễ",
+      "topic": "Grammar",
+      "options": [
+        { "id": "A", "text": "Slow" },
+        { "id": "B", "text": "Fast" },
+        { "id": "C", "text": "Quiet" },
+        { "id": "D", "text": "Tall" }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": 2,
+      "examId": 1,
+      "content": "Choose the correct sentence:",
+      "level": "Dễ",
+      "topic": "Grammar",
+      "options": [
+        { "id": "A", "text": "She go to school." },
+        { "id": "B", "text": "She goes to school." },
+        { "id": "C", "text": "She going to school." },
+        { "id": "D", "text": "She gone to school." }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": 3,
+      "examId": 1,
+      "content": "Which word is a noun?",
+      "level": "Trung bình",
+      "topic": "Vocabulary",
+      "options": [
+        { "id": "A", "text": "Quickly" },
+        { "id": "B", "text": "Beautiful" },
+        { "id": "C", "text": "Happiness" },
+        { "id": "D", "text": "Run" }
+      ],
+      "correctAnswer": "C"
+    },
+    {
+      "id": 4,
+      "examId": 2,
+      "content": "Select the correct past tense of 'eat':",
+      "level": "Trung bình",
+      "topic": "Grammar",
+      "options": [
+        { "id": "A", "text": "Eated" },
+        { "id": "B", "text": "Ate" },
+        { "id": "C", "text": "Eat" },
+        { "id": "D", "text": "Eating" }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": 5,
+      "examId": 2,
+      "content": "What does 'bilingual' mean?",
+      "level": "Khó",
+      "topic": "Vocabulary",
+      "options": [
+        { "id": "A", "text": "Able to fly" },
+        { "id": "B", "text": "Able to speak two languages" },
+        { "id": "C", "text": "Able to draw well" },
+        { "id": "D", "text": "Able to write poems" }
+      ],
+      "correctAnswer": "B"
+    }
+  ]
+}

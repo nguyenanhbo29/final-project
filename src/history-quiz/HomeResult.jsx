@@ -8,8 +8,10 @@ import {
   IconStar,
   IconTimeDuration0,
 } from "@tabler/icons-react";
+import { navigate, useNavigate } from "react-router-dom";
 
 export default function HomeResult() {
+  const navigate = useNavigate();
   return (
     <div>
       <Card shadow="sm" padding="sm" radius="md" withBorder>
@@ -20,7 +22,12 @@ export default function HomeResult() {
               Lịch sử thi
             </h3>
           </div>
-          <Button variant="default">
+          <Button
+            variant="default"
+            onClick={() => {
+              navigate("/home/user");
+            }}
+          >
             <div className="flex gap-4 items-center">
               <IconArrowLeft />
               <span>Quay lại</span>

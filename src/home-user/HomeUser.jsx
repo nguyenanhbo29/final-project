@@ -128,6 +128,9 @@ export default function HomeUser() {
               color="dark"
               radius="md"
               className="w-full! text-center"
+              onClick={() => {
+                navigate("/history");
+              }}
             >
               Xem lịch sử
             </Button>

@@ -1,10 +1,19 @@
-import { Card, Button } from "@mantine/core";
-import { IconFileText, IconClock, IconListDetails } from "@tabler/icons-react";
+import { Button } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
-import CardExam from "./components/CardExam";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import CardExam from "../home-exam/components/CardExam";
 
 export default function HomeExam() {
   const navigate = useNavigate();
+  const [exams, setExams] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/exams")
+      .then((res) => setExams(res.data))
+      .catch((err) => console.error("Lỗi khi lấy dữ liệu đề thi:", err));
+  }, []);
 
   return (
     <div className="py-16 px-20 bg-white">
@@ -16,8 +25,9 @@ export default function HomeExam() {
       </div>
 
       <div className="grid grid-cols-2 gap-10">
-        <CardExam />
-        <CardExam />
+        {exams.map((exam) => (
+          <CardExam key={exam.id} exam={exam} />
+        ))}
       </div>
 
       <div className="mt-12 flex justify-center">
