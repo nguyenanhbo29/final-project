@@ -22,12 +22,19 @@ export default function Home() {
         <div className="flex gap-4">
           <Button
             onClick={() => {
-              navigate("/home/user");
+              navigate("/login");
             }}
           >
             Bắt đầu luyện thi
           </Button>
-          <Button variant="default">Quản lý hệ thống</Button>
+          <Button
+            variant="default"
+            onClick={() => {
+              navigate("/login");
+            }}
+          >
+            Quản lý hệ thống
+          </Button>
         </div>
       </div>
       <div className="grid grid-cols-3 gap-12 mt-12">

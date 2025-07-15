@@ -27,20 +27,17 @@ export default function CardExam({ exam }) {
         </div>
 
         <div className="flex gap-2 mb-3">
-          {exam.levels.map((level, index) => (
-            <span
-              key={index}
-              className={`text-xs px-2 py-1 rounded-full font-medium ${
-                level === "Dễ"
-                  ? "bg-green-100 text-green-700"
-                  : level === "Trung bình"
-                  ? "bg-yellow-100 text-yellow-700"
-                  : "bg-red-100 text-red-700"
-              }`}
-            >
-              {level}
-            </span>
-          ))}
+          <span
+            className={`text-xs px-2 py-1 rounded-full font-medium ${
+              exam.level === "Dễ"
+                ? "bg-green-100 text-green-700"
+                : exam.level === "Trung bình"
+                ? "bg-yellow-100 text-yellow-700"
+                : "bg-red-100 text-red-700"
+            }`}
+          >
+            {exam.level}
+          </span>
         </div>
 
         <div className="flex gap-2 flex-wrap mb-5">

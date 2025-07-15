@@ -53,13 +53,6 @@ export default function QuizOverView({ setStartQuiz }) {
               <IconCheck size={20} color="blue" />
               <p>Dạng: {exam.type}</p>
             </div>
-            <div className="flex gap-2 items-center">
-              <IconMessage2Check size={20} color="blue" />
-              <p className="text-green-600">
-                Bạn cần đạt ít nhất <strong>{exam.passingScore}</strong> điểm để
-                qua bài thi này.
-              </p>
-            </div>
           </div>
         </Card>
 

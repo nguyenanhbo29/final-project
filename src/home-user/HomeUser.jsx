@@ -7,10 +7,35 @@ import {
   IconHistory,
   IconClock,
 } from "@tabler/icons-react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { formatDate } from "../helpers";
 
 export default function HomeUser() {
   const navigate = useNavigate();
+  const [historyExams, setHistoryExams] = useState([]);
+  const account = JSON.parse(localStorage.getItem("account"));
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/history-exam")
+      .then((res) => setHistoryExams(res.data))
+      .catch((err) => console.error("Lỗi khi lấy dữ liệu đề thi:", err));
+  }, []);
+
+  const historyExamsByMe = historyExams.filter((item) => {
+    return item.userId + "" === account.id;
+  });
+
+  const maxPercent = Math.max(...historyExamsByMe.map((item) => item.percent));
+  const totalDuration = historyExamsByMe.reduce(
+    (sum, exam) => sum + exam.duration,
+    0
+  );
+  const totalPercent = historyExamsByMe.reduce(
+    (sum, exam) => sum + exam.percent,
+    0
+  );
   return (
     <div className="py-12 px-10 bg-blue-50 min-h-screen">
       <div className="grid gird cols-2 gap-2">
@@ -32,8 +57,14 @@ export default function HomeUser() {
               <IconStar size={24} stroke={1.5} color="white" />
             </div>
           </div>
-          <p className="text-2xl font-bold mt-4">78%</p>
-          <p>Tốt!</p>
+          <p className="text-2xl font-bold mt-4">
+            {totalPercent / historyExamsByMe?.length}%
+          </p>
+          {totalPercent / historyExamsByMe?.length > 80 ? (
+            <p>Tốt!</p>
+          ) : (
+            <p>Trung bình!</p>
+          )}
         </Card>
 
         <Card
@@ -49,7 +80,7 @@ export default function HomeUser() {
               <IconAward size={24} stroke={1.5} color="white" />
             </div>
           </div>
-          <p className="text-2xl font-bold mt-4">2</p>
+          <p className="text-2xl font-bold mt-4">{historyExamsByMe?.length}</p>
           <p>Tiếp tục phát huy!</p>
         </Card>
 
@@ -66,7 +97,13 @@ export default function HomeUser() {
               <IconLaurelWreath1 size={24} stroke={1.5} color="white" />
             </div>
           </div>
-          <p className="text-2xl font-bold mt-4">1</p>
+          <p className="text-2xl font-bold mt-4">
+            {
+              historyExamsByMe?.filter((item) => {
+                return item.percent > 80;
+              }).length
+            }
+          </p>
           <p>Bài đạt trên 80%</p>
         </Card>
       </div>
@@ -146,35 +183,26 @@ export default function HomeUser() {
           </h3>
 
           <div className="mt-4 space-y-3">
-            <Card padding="md" withBorder radius="md">
-              <div className="flex justify-between items-center">
-                <div>
-                  <h4 className="font-semibold">Grammar Basic</h4>
-                  <p className="text-sm text-gray-600">15/1/2024 · 15 phút</p>
-                </div>
-                <div className="text-right">
-                  <div className="bg-gray-800 text-white px-3 py-1 rounded-full text-sm font-bold">
-                    8/10
+            {historyExamsByMe?.slice(0, 3).map((item) => {
+              return (
+                <Card padding="md" withBorder radius="md">
+                  <div className="flex justify-between items-center">
+                    <div>
+                      <h4 className="font-semibold">{item.examName}</h4>
+                      <p className="text-sm text-gray-600">
+                        {formatDate(item?.dateTaken)} · {item.duration} phút
+                      </p>
+                    </div>
+                    <div className="text-right">
+                      <div className="bg-gray-800 text-white px-3 py-1 rounded-full text-sm font-bold">
+                        {item.totalCorrect}/{item.questionsCount}
+                      </div>
+                      <p className="text-sm">{item.percent}%</p>
+                    </div>
                   </div>
-                  <p className="text-sm">80%</p>
-                </div>
-              </div>
-            </Card>
-
-            <Card padding="md" withBorder radius="md">
-              <div className="flex justify-between items-center">
-                <div>
-                  <h4 className="font-semibold">Vocabulary Advanced</h4>
-                  <p className="text-sm text-gray-600">10/1/2024 · 25 phút</p>
-                </div>
-                <div className="text-right">
-                  <div className="bg-gray-800 text-white px-3 py-1 rounded-full text-sm font-bold">
-                    15/20
-                  </div>
-                  <p className="text-sm">75%</p>
-                </div>
-              </div>
-            </Card>
+                </Card>
+              );
+            })}
           </div>
         </Card>
       </div>

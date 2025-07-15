@@ -8,10 +8,35 @@ import {
   IconStar,
   IconTimeDuration0,
 } from "@tabler/icons-react";
-import { navigate, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { formatDate } from "../helpers";
 
 export default function HomeResult() {
   const navigate = useNavigate();
+  const [historyExams, setHistoryExams] = useState([]);
+  const account = JSON.parse(localStorage.getItem("account"));
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/history-exam")
+      .then((res) => setHistoryExams(res.data))
+      .catch((err) => console.error("Lỗi khi lấy dữ liệu đề thi:", err));
+  }, []);
+
+  const historyExamsByMe = historyExams.filter((item) => {
+    return item.userId + "" === account.id;
+  });
+
+  const maxPercent = Math.max(...historyExamsByMe.map((item) => item.percent));
+  const totalDuration = historyExamsByMe.reduce(
+    (sum, exam) => sum + exam.duration,
+    0
+  );
+  const totalPercent = historyExamsByMe.reduce(
+    (sum, exam) => sum + exam.percent,
+    0
+  );
   return (
     <div>
       <Card shadow="sm" padding="sm" radius="md" withBorder>
@@ -50,8 +75,14 @@ export default function HomeResult() {
                 <IconStar size={24} stroke={1.5} color="white" />
               </div>
             </div>
-            <p className="text-2xl font-bold mt-4">83%</p>
-            <p>Tốt!</p>
+            <p className="text-2xl font-bold mt-4">
+              {totalPercent / historyExamsByMe?.length}%
+            </p>
+            {totalPercent / historyExamsByMe?.length > 80 ? (
+              <p>Tốt!</p>
+            ) : (
+              <p>Trung bình!</p>
+            )}
           </Card>
           <Card
             shadow="sm"
@@ -66,7 +97,9 @@ export default function HomeResult() {
                 <IconBook size={24} stroke={1.5} color="white" />
               </div>
             </div>
-            <p className="text-2xl font-bold mt-4">5</p>
+            <p className="text-2xl font-bold mt-4">
+              {historyExamsByMe?.length}
+            </p>
             <p>Bài thi đã hoàn thành</p>
           </Card>
           <Card
@@ -82,7 +115,7 @@ export default function HomeResult() {
                 <IconAward size={24} stroke={1.5} color="white" />
               </div>
             </div>
-            <p className="text-2xl font-bold mt-4">90%</p>
+            <p className="text-2xl font-bold mt-4">{maxPercent}%</p>
             <p>Thành tích tốt nhất</p>
           </Card>
           <Card
@@ -98,8 +131,8 @@ export default function HomeResult() {
                 <IconTimeDuration0 size={24} stroke={1.5} color="white" />
               </div>
             </div>
-            <p className="text-2xl font-bold mt-4">104</p>
-            <p>Phút đã uyện tập</p>
+            <p className="text-2xl font-bold mt-4">{totalDuration}</p>
+            <p>Phút đã luyện tập</p>
           </Card>
         </div>
         <Card shadow="sm" padding="lg" radius="md" withBorder>
@@ -114,262 +147,69 @@ export default function HomeResult() {
           </p>
 
           <div className="grid grid cols gap-4">
-            <Card shadow="sm" padding="lg" radius="md" withBorder>
-              <div className="flex justify-between items-start">
-                <div>
-                  <h3 className="font-semibold text-lg mb-2">
-                    Grammar Basic Test
-                  </h3>
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <span className="bg-gray-200 text-sm px-2 py-0.5 rounded-full ">
-                      Grammar
-                    </span>
-                    <span className="bg-green-100 text-green-600 text-sm px-2 py-0.5 rounded-full">
-                      Dễ
-                    </span>
-                    <span className="bg-gray-800 text-white text-sm px-2 py-0.5 rounded-full">
-                      8/10 (80%)
-                    </span>
+            {historyExamsByMe?.map((item) => {
+              return (
+                <Card shadow="sm" padding="lg" radius="md" withBorder>
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h3 className="font-semibold text-lg mb-2">
+                        {item.examName}
+                      </h3>
+                      <div className="flex items-center gap-2 flex-wrap">
+                        {item?.topics?.map((topic) => {
+                          return (
+                            <span className="bg-gray-200 text-sm px-2 py-0.5 rounded-full ">
+                              {topic}
+                            </span>
+                          );
+                        })}
+                        <span className="bg-green-100 text-green-600 text-sm px-2 py-0.5 rounded-full">
+                          {item.level}
+                        </span>
+                        <span className="bg-gray-800 text-white text-sm px-2 py-0.5 rounded-full">
+                          {item?.totalCorrect}/{item?.questionsCount} (
+                          {item.percent}%)
+                        </span>
+                      </div>
+
+                      <div className="flex items-center gap-4 text-gray-500 text-sm mt-2">
+                        <span className="flex items-center gap-1">
+                          <IconCalendar size={14} />{" "}
+                          {formatDate(item?.dateTaken)}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <IconClock size={14} /> {item?.duration} phút
+                        </span>
+                      </div>
+                    </div>
+                    <div className="flex flex-col items-end">
+                      <p className="text-green-600 font-bold text-2xl">
+                        {item?.percent}%
+                      </p>
+                      <Progress
+                        value={item?.duration}
+                        size="sm"
+                        radius="xl"
+                        className="w-24 mt-1"
+                        color="grape"
+                      />
+                    </div>
                   </div>
 
-                  <div className="flex items-center gap-4 text-gray-500 text-sm mt-2">
-                    <span className="flex items-center gap-1">
-                      <IconCalendar size={14} /> 15/1/2024
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <IconClock size={14} /> 15 phút
+                  <hr className="my-3" />
+
+                  <div className="flex justify-between text-sm">
+                    <span className="text-blue-600 font-medium flex items-center gap-1">
+                      {item.percent > 80 ? (
+                        <span>⭐ Rất tốt</span>
+                      ) : (
+                        <span>Trung bình</span>
+                      )}
                     </span>
                   </div>
-                </div>
-
-                <div className="flex flex-col items-end">
-                  <p className="text-green-600 font-bold text-2xl">80%</p>
-                  <Progress
-                    value={80}
-                    size="sm"
-                    radius="xl"
-                    className="w-24 mt-1"
-                    color="grape"
-                  />
-                </div>
-              </div>
-
-              <hr className="my-3" />
-
-              <div className="flex justify-between text-sm">
-                <span className="text-blue-600 font-medium flex items-center gap-1">
-                  ⭐ Rất tốt
-                </span>
-                <span className="text-gray-600 flex items-center gap-1">
-                  ⚡ Nhanh
-                </span>
-              </div>
-            </Card>
-            <Card shadow="sm" padding="lg" radius="md" withBorder>
-              <div className="flex justify-between items-start">
-                <div>
-                  <h3 className="font-semibold text-lg mb-2">
-                    Vocabulary Advanced
-                  </h3>
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <span className="bg-gray-200 text-sm px-2 py-0.5 rounded-full ">
-                      Vocabulary
-                    </span>
-                    <span className="bg-red-100 text-red-600 text-sm px-2 py-0.5 rounded-full">
-                      Khó
-                    </span>
-                    <span className="bg-gray-800 text-white text-sm px-2 py-0.5 rounded-full">
-                      15/20 (75%)
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-4 text-gray-500 text-sm mt-2">
-                    <span className="flex items-center gap-1">
-                      <IconCalendar size={14} /> 10/1/2024
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <IconClock size={14} /> 25 phút
-                    </span>
-                  </div>
-                </div>
-
-                <div className="flex flex-col items-end">
-                  <p className="text-green-600 font-bold text-2xl">75%</p>
-                  <Progress
-                    value={75}
-                    size="sm"
-                    radius="xl"
-                    className="w-24 mt-1"
-                    color="grape"
-                  />
-                </div>
-              </div>
-
-              <hr className="my-3" />
-
-              <div className="flex justify-between text-sm">
-                <span className="text-blue-600 font-medium flex items-center gap-1">
-                  ⭐ Tốt
-                </span>
-                <span className="text-gray-600 flex items-center gap-1">
-                  ⏰ Vừa phải
-                </span>
-              </div>
-            </Card>
-            <Card shadow="sm" padding="lg" radius="md" withBorder>
-              <div className="flex justify-between items-start">
-                <div>
-                  <h3 className="font-semibold text-lg mb-2">
-                    Reading Comprehension
-                  </h3>
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <span className="bg-gray-200 text-sm px-2 py-0.5 rounded-full ">
-                      Reading
-                    </span>
-                    <span className="bg-yellow-100 text-orange-600 text-sm px-2 py-0.5 rounded-full">
-                      Trung bình
-                    </span>
-                    <span className="bg-gray-800 text-white text-sm px-2 py-0.5 rounded-full">
-                      12/15 (80%)
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-4 text-gray-500 text-sm mt-2">
-                    <span className="flex items-center gap-1">
-                      <IconCalendar size={14} />
-                      8/1/2024
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <IconClock size={14} /> 30 phút
-                    </span>
-                  </div>
-                </div>
-
-                <div className="flex flex-col items-end">
-                  <p className="text-green-600 font-bold text-2xl">80%</p>
-                  <Progress
-                    value={80}
-                    size="sm"
-                    radius="xl"
-                    className="w-24 mt-1"
-                    color="grape"
-                  />
-                </div>
-              </div>
-
-              <hr className="my-3" />
-
-              <div className="flex justify-between text-sm">
-                <span className="text-blue-600 font-medium flex items-center gap-1">
-                  ⭐ Rất tốt
-                </span>
-                <span className="text-gray-600 flex items-center gap-1">
-                  🐌 Chậm rãi
-                </span>
-              </div>
-            </Card>
-            <Card shadow="sm" padding="lg" radius="md" withBorder>
-              <div className="flex justify-between items-start">
-                <div>
-                  <h3 className="font-semibold text-lg mb-2">
-                    Grammar Intermediate
-                  </h3>
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <span className="bg-gray-200 text-sm px-2 py-0.5 rounded-full ">
-                      Grammar
-                    </span>
-                    <span className="bg-yellow-100 text-orange-600 text-sm px-2 py-0.5 rounded-full">
-                      Trung bình
-                    </span>
-                    <span className="bg-gray-800 text-white text-sm px-2 py-0.5 rounded-full">
-                      18/20 (90%)
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-4 text-gray-500 text-sm mt-2">
-                    <span className="flex items-center gap-1">
-                      <IconCalendar size={14} /> 5/1/2024
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <IconClock size={14} /> 22 phút
-                    </span>
-                  </div>
-                </div>
-
-                <div className="flex flex-col items-end">
-                  <p className="text-green-600 font-bold text-2xl">90%</p>
-                  <Progress
-                    value={90}
-                    size="sm"
-                    radius="xl"
-                    className="w-24 mt-1"
-                    color="grape"
-                  />
-                </div>
-              </div>
-
-              <hr className="my-3" />
-
-              <div className="flex justify-between text-sm">
-                <span className="text-blue-600 font-medium flex items-center gap-1">
-                  🏆 Xuất sắc
-                </span>
-                <span className="text-gray-600 flex items-center gap-1">
-                  ⏰ Vừa phải
-                </span>
-              </div>
-            </Card>
-            <Card shadow="sm" padding="lg" radius="md" withBorder>
-              <div className="flex justify-between items-start">
-                <div>
-                  <h3 className="font-semibold text-lg mb-2">
-                    Vocabulary Basic
-                  </h3>
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <span className="bg-gray-200 text-sm px-2 py-0.5 rounded-full ">
-                      Vocabulary
-                    </span>
-                    <span className="bg-green-100 text-green-600 text-sm px-2 py-0.5 rounded-full">
-                      Dễ
-                    </span>
-                    <span className="bg-gray-800 text-white text-sm px-2 py-0.5 rounded-full">
-                      9/10 (90%)
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-4 text-gray-500 text-sm mt-2">
-                    <span className="flex items-center gap-1">
-                      <IconCalendar size={14} /> 15/1/2024
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <IconClock size={14} /> 12 phút
-                    </span>
-                  </div>
-                </div>
-
-                <div className="flex flex-col items-end">
-                  <p className="text-green-600 font-bold text-2xl">90%</p>
-                  <Progress
-                    value={90}
-                    size="sm"
-                    radius="xl"
-                    className="w-24 mt-1"
-                    color="grape"
-                  />
-                </div>
-              </div>
-
-              <hr className="my-3" />
-
-              <div className="flex justify-between text-sm">
-                <span className="text-blue-600 font-medium flex items-center gap-1">
-                  🏆 Xuất sắc
-                </span>
-                <span className="text-gray-600 flex items-center gap-1">
-                  ⚡ Nhanh
-                </span>
-              </div>
-            </Card>
+                </Card>
+              );
+            })}
           </div>
         </Card>
       </div>
