@@ -1,17 +1,30 @@
 {
   "exams": [
     {
-      "id": "id-bfhlgl2y9-1752688216528",
-      "title": "123",
-      "description": "123",
-      "questionsCount": 0,
+      "id": "1",
+      "title": "Bài thi cơ bản",
+      "description": "Bài thi dành cho người mới bắt đầu",
+      "questionsCount": 3,
       "duration": 30,
       "level": "Dễ",
       "topics": [
         "Grammar",
         "Vocabulary"
       ],
-      "type": "Trắc nghiệm"
+      "type": "trắc nghiệm"
+    },
+    {
+      "id": "2",
+      "title": "Bài thi nâng cao",
+      "description": "Bài thi dành cho người có trình độ cao",
+      "questionsCount": 2,
+      "duration": 45,
+      "level": "Trung bình",
+      "topics": [
+        "Grammar",
+        "Vocabulary"
+      ],
+      "type": "trắc nghiệm"
     }
   ],
   "questions": [
@@ -170,7 +183,7 @@
     {
       "id": "5159",
       "userId": 1,
-      "examId": null,
+      "examId": "1",
       "examName": "Bài thi cơ bản",
       "duration": 30,
       "questionsCount": 3,
@@ -186,7 +199,7 @@
     {
       "id": "c5e6",
       "userId": 1,
-      "examId": null,
+      "examId": "1",
       "examName": "Bài thi cơ bản",
       "duration": 30,
       "questionsCount": 3,
@@ -202,7 +215,7 @@
     {
       "id": "6deb",
       "userId": "1",
-      "examId": null,
+      "examId": "1",
       "examName": "Bài thi cơ bản",
       "duration": 30,
       "questionsCount": 3,
@@ -218,7 +231,7 @@
     {
       "id": "ed94",
       "userId": "1",
-      "examId": null,
+      "examId": "1",
       "examName": "Bài thi cơ bản",
       "duration": 30,
       "questionsCount": 3,
