@@ -10,6 +10,9 @@ export default function LoginPage() {
   const [listUser, setListUser] = useState([]);
   const [listAdmin, setListAdmin] = useState([]);
   const [error, setError] = useState("");
+
+  const navigation = useNavigate();
+
   useEffect(() => {
     axios
       .get("http://localhost:3001/users")
@@ -28,7 +31,7 @@ export default function LoginPage() {
       password: "",
     },
   });
-  const navigation = useNavigate();
+
   return (
     <div className="flex justify-center items-center h-screen">
       <Card shadow="sm" padding="sm" radius="md" withBorder>
@@ -42,9 +45,10 @@ export default function LoginPage() {
             </h3>
             <p>Nhập thông tin để tiếp tục học tập</p>
           </div>
+
           <div className="flex justify-center gap-4 mt-4">
             <Button
-              variant={typeForm === "admin" && "default"}
+              variant={typeForm === "admin" ? "default" : "filled"}
               onClick={() => {
                 setTypeForm("user");
               }}
@@ -53,7 +57,7 @@ export default function LoginPage() {
               Học viên
             </Button>
             <Button
-              variant={typeForm === "user" && "default"}
+              variant={typeForm === "user" ? "default" : "filled"}
               onClick={() => {
                 setTypeForm("admin");
               }}
@@ -62,6 +66,7 @@ export default function LoginPage() {
               Admin
             </Button>
           </div>
+
           <div className="mt-6">
             <form
               onSubmit={form.onSubmit((values) => {
@@ -73,8 +78,6 @@ export default function LoginPage() {
                   );
                   if (resUser) {
                     localStorage.setItem("account", JSON.stringify(resUser));
-                    console.log(resUser);
-
                     navigation("/home/user");
                   } else {
                     setError("Tài khoản hoặc mật khẩu không chính xác");
@@ -109,12 +112,42 @@ export default function LoginPage() {
                 className="mt-4"
                 {...form.getInputProps("password")}
               />
-              <p className="text-red-500 py-2">{error}</p>
-              <Button type="submit" className="w-full! mt-6!">
+              {error && <p className="text-red-500 py-2">{error}</p>}
+              <Button type="submit" className="w-full mt-6">
                 Đăng nhập
               </Button>
             </form>
           </div>
+
+          {/*
+          <form
+            onSubmit={form.onSubmit((values) => {
+              const { username, password } = values;
+
+              const resAdmin = listAdmin.find(
+                (item) => item.username === username && item.password === password
+              );
+              if (resAdmin) {
+                localStorage.setItem("account", JSON.stringify(resAdmin));
+                navigation("/home/admin");
+                return;
+              }
+
+              const resUser = listUser.find(
+                (item) => item.username === username && item.password === password
+              );
+              if (resUser) {
+                localStorage.setItem("account", JSON.stringify(resUser));
+                navigation("/home/user");
+                return;
+              }
+
+              setError("Tài khoản hoặc mật khẩu không chính xác");
+            })}
+          >
+            ...
+          </form>
+          */}
         </div>
       </Card>
     </div>

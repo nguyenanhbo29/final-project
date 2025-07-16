@@ -1,24 +1,17 @@
 {
   "exams": [
     {
-      "id": "1",
-      "title": "Bài thi cơ bản",
-      "description": "Bài thi dành cho người mới bắt đầu",
-      "questionsCount": 3,
+      "id": "id-bfhlgl2y9-1752688216528",
+      "title": "123",
+      "description": "123",
+      "questionsCount": 0,
       "duration": 30,
       "level": "Dễ",
-      "topics": ["Grammar", "Vocabulary"],
-      "type": "trắc nghiệm"
-    },
-    {
-      "id": "2",
-      "title": "Bài thi nâng cao",
-      "description": "Bài thi dành cho người có trình độ cao",
-      "questionsCount": 2,
-      "duration": 45,
-      "level": "Trung bình",
-      "topics": ["Grammar", "Vocabulary"],
-      "type": "trắc nghiệm"
+      "topics": [
+        "Grammar",
+        "Vocabulary"
+      ],
+      "type": "Trắc nghiệm"
     }
   ],
   "questions": [
@@ -177,12 +170,15 @@
     {
       "id": "5159",
       "userId": 1,
-      "examId": "1",
+      "examId": null,
       "examName": "Bài thi cơ bản",
       "duration": 30,
       "questionsCount": 3,
       "level": "Dễ",
-      "topics": ["Grammar", "Vocabulary"],
+      "topics": [
+        "Grammar",
+        "Vocabulary"
+      ],
       "totalCorrect": 1,
       "percent": 33,
       "dateTaken": "2025-07-15T17:39:43.489Z"
@@ -190,15 +186,50 @@
     {
       "id": "c5e6",
       "userId": 1,
-      "examId": "1",
+      "examId": null,
       "examName": "Bài thi cơ bản",
       "duration": 30,
       "questionsCount": 3,
       "level": "Dễ",
-      "topics": ["Grammar", "Vocabulary"],
+      "topics": [
+        "Grammar",
+        "Vocabulary"
+      ],
       "totalCorrect": 2,
       "percent": 67,
       "dateTaken": "2025-07-15T17:56:02.907Z"
+    },
+    {
+      "id": "6deb",
+      "userId": "1",
+      "examId": null,
+      "examName": "Bài thi cơ bản",
+      "duration": 30,
+      "questionsCount": 3,
+      "level": "Dễ",
+      "topics": [
+        "Grammar",
+        "Vocabulary"
+      ],
+      "totalCorrect": 0,
+      "percent": 0,
+      "dateTaken": "2025-07-16T01:53:40.412Z"
+    },
+    {
+      "id": "ed94",
+      "userId": "1",
+      "examId": null,
+      "examName": "Bài thi cơ bản",
+      "duration": 30,
+      "questionsCount": 3,
+      "level": "Dễ",
+      "topics": [
+        "Grammar",
+        "Vocabulary"
+      ],
+      "totalCorrect": 3,
+      "percent": 100,
+      "dateTaken": "2025-07-16T09:31:14.612Z"
     }
   ]
 }

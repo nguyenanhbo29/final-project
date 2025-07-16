@@ -12,7 +12,7 @@ export default function QuizDetail() {
   const [exam, setExam] = useState(null);
   const [questions, setQuestions] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [answers, setAnswers] = useState({}); // ✅ lưu đáp án người dùng chọn
+  const [answers, setAnswers] = useState({});
 
   useEffect(() => {
     axios.get(`http://localhost:3001/exams/${id}`).then((res) => {

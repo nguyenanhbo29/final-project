@@ -9,6 +9,7 @@ import QuizPage from "./quiz-page/QuizPage";
 import HomeResult from "./history-quiz/HomeResult";
 import ResultPage from "./quiz-page/ResultPage";
 import LoginPage from "./login/LoginPage";
+import HomeAdmin from "./admin/home-admin/HomeAdmin";
 
 function AppContent() {
   return (
@@ -22,6 +23,7 @@ function AppContent() {
         <Route path="/quiz/:id" element={<QuizPage />} />
         <Route path="/result" element={<ResultPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/home/admin" element={<HomeAdmin />} />
       </Routes>
     </div>
   );
