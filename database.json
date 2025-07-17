@@ -1,11 +1,11 @@
 {
   "exams": [
     {
-      "id": "id-bevr4l8xd-1752747162565",
-      "title": "123",
-      "description": "123",
-      "questionsCount": 1,
-      "duration": 30,
+      "id": "id-exam1-1752750000001",
+      "title": "Bài thi tiếng Anh A1",
+      "description": "Đề thi trình độ A1, kiểm tra ngữ pháp và từ vựng cơ bản.",
+      "questionsCount": 5,
+      "duration": 15,
       "level": "Dễ",
       "topics": [
         "Grammar",
@@ -14,73 +14,677 @@
       "type": "Trắc nghiệm"
     },
     {
-      "id": "id-myb4ht641-1752747746897",
-      "title": "124",
-      "description": "1234",
-      "questionsCount": 1,
-      "duration": 30,
+      "id": "id-exam2-1752750000002",
+      "title": "Bài thi tiếng Anh A2",
+      "description": "Đề thi trình độ A2, đánh giá kiến thức từ vựng thông dụng và ngữ pháp hiện tại đơn.",
+      "questionsCount": 5,
+      "duration": 15,
       "level": "Dễ",
       "topics": [
         "Grammar",
-        "Vocab"
+        "Vocabulary"
+      ],
+      "type": "Trắc nghiệm"
+    },
+    {
+      "id": "id-exam3-1752750000003",
+      "title": "Bài thi tiếng Anh B1",
+      "description": "Đề thi B1 kiểm tra khả năng đọc hiểu và cấu trúc câu.",
+      "questionsCount": 4,
+      "duration": 20,
+      "level": "Trung bình",
+      "topics": [
+        "Reading",
+        "Grammar"
+      ],
+      "type": "Trắc nghiệm"
+    },
+    {
+      "id": "id-exam4-1752750000004",
+      "title": "Bài thi tiếng Anh Vocabulary",
+      "description": "Đề thi kiểm tra từ vựng tiếng Anh thông dụng.",
+      "questionsCount": 4,
+      "duration": 10,
+      "level": "Dễ",
+      "topics": [
+        "Vocabulary"
+      ],
+      "type": "Trắc nghiệm"
+    },
+    {
+      "id": "id-exam5-1752750000005",
+      "title": "Bài thi ngữ pháp nâng cao",
+      "description": "Đề thi dành cho người học nâng cao để kiểm tra kiến thức ngữ pháp chuyên sâu.",
+      "questionsCount": 5,
+      "duration": 20,
+      "level": "Khó",
+      "topics": [
+        "Grammar"
       ],
       "type": "Trắc nghiệm"
     }
   ],
   "questions": [
     {
-      "id": "id-5zxnxph6d-1752747333211",
-      "examId": "id-bevr4l8xd-1752747162565",
-      "content": "123",
+      "id": "q1",
+      "examId": "id-exam1-1752750000001",
+      "content": "What is the plural of 'child'?",
+      "topic": [
+        "Vocabulary"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "childs"
+        },
+        {
+          "id": "B",
+          "text": "children"
+        },
+        {
+          "id": "C",
+          "text": "childes"
+        },
+        {
+          "id": "D",
+          "text": "childer"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "q2",
+      "examId": "id-exam1-1752750000001",
+      "content": "She ___ to school every day.",
       "topic": [
         "Grammar"
       ],
       "options": [
         {
           "id": "A",
-          "text": "123"
+          "text": "go"
         },
         {
           "id": "B",
-          "text": "123"
+          "text": "goes"
         },
         {
           "id": "C",
-          "text": "123"
+          "text": "gone"
         },
         {
           "id": "D",
-          "text": "132"
+          "text": "going"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "q3",
+      "examId": "id-exam1-1752750000001",
+      "content": "Which word is a noun?",
+      "topic": [
+        "Vocabulary"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "quickly"
+        },
+        {
+          "id": "B",
+          "text": "run"
+        },
+        {
+          "id": "C",
+          "text": "happiness"
+        },
+        {
+          "id": "D",
+          "text": "go"
+        }
+      ],
+      "correctAnswer": "C"
+    },
+    {
+      "id": "q4",
+      "examId": "id-exam1-1752750000001",
+      "content": "I have ___ apple in my bag.",
+      "topic": [
+        "Grammar"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "a"
+        },
+        {
+          "id": "B",
+          "text": "an"
+        },
+        {
+          "id": "C",
+          "text": "the"
+        },
+        {
+          "id": "D",
+          "text": "some"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "q5",
+      "examId": "id-exam1-1752750000001",
+      "content": "Choose the correct past tense: 'He ___ to the store yesterday.'",
+      "topic": [
+        "Grammar"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "go"
+        },
+        {
+          "id": "B",
+          "text": "gone"
+        },
+        {
+          "id": "C",
+          "text": "went"
+        },
+        {
+          "id": "D",
+          "text": "going"
+        }
+      ],
+      "correctAnswer": "C"
+    },
+    {
+      "id": "q6",
+      "examId": "id-exam2-1752750000002",
+      "content": "What does 'hungry' mean?",
+      "topic": [
+        "Vocabulary"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "tired"
+        },
+        {
+          "id": "B",
+          "text": "thirsty"
+        },
+        {
+          "id": "C",
+          "text": "sleepy"
+        },
+        {
+          "id": "D",
+          "text": "want to eat"
+        }
+      ],
+      "correctAnswer": "D"
+    },
+    {
+      "id": "q7",
+      "examId": "id-exam2-1752750000002",
+      "content": "They ___ playing football now.",
+      "topic": [
+        "Grammar"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "are"
+        },
+        {
+          "id": "B",
+          "text": "is"
+        },
+        {
+          "id": "C",
+          "text": "was"
+        },
+        {
+          "id": "D",
+          "text": "be"
         }
       ],
       "correctAnswer": "A"
     },
     {
-      "id": "id-fi1cqfe5t-1752747761129",
-      "examId": "id-myb4ht641-1752747746897",
-      "content": "123",
+      "id": "q8",
+      "examId": "id-exam2-1752750000002",
+      "content": "Choose the opposite of 'hot':",
+      "topic": [
+        "Vocabulary"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "cold"
+        },
+        {
+          "id": "B",
+          "text": "warm"
+        },
+        {
+          "id": "C",
+          "text": "cool"
+        },
+        {
+          "id": "D",
+          "text": "mild"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "q9",
+      "examId": "id-exam2-1752750000002",
+      "content": "He ___ a student.",
       "topic": [
         "Grammar"
       ],
       "options": [
         {
           "id": "A",
-          "text": "123"
+          "text": "am"
         },
         {
           "id": "B",
-          "text": "123"
+          "text": "is"
         },
         {
           "id": "C",
-          "text": "123"
+          "text": "are"
         },
         {
           "id": "D",
-          "text": "132123"
+          "text": "were"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "q10",
+      "examId": "id-exam2-1752750000002",
+      "content": "Where ___ you live?",
+      "topic": [
+        "Grammar"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "does"
+        },
+        {
+          "id": "B",
+          "text": "do"
+        },
+        {
+          "id": "C",
+          "text": "are"
+        },
+        {
+          "id": "D",
+          "text": "did"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "q11",
+      "examId": "id-exam3-1752750000003",
+      "content": "I’ve lived here ___ 2010.",
+      "topic": [
+        "Grammar"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "for"
+        },
+        {
+          "id": "B",
+          "text": "since"
+        },
+        {
+          "id": "C",
+          "text": "from"
+        },
+        {
+          "id": "D",
+          "text": "at"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "q12",
+      "examId": "id-exam3-1752750000003",
+      "content": "Choose the correct sentence:",
+      "topic": [
+        "Grammar"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "She don’t like pizza."
+        },
+        {
+          "id": "B",
+          "text": "She doesn’t like pizza."
+        },
+        {
+          "id": "C",
+          "text": "She didn’t likes pizza."
+        },
+        {
+          "id": "D",
+          "text": "She not like pizza."
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "q13",
+      "examId": "id-exam3-1752750000003",
+      "content": "What is the meaning of the word 'expensive'?",
+      "topic": [
+        "Reading"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "Not costly"
+        },
+        {
+          "id": "B",
+          "text": "Cheap"
+        },
+        {
+          "id": "C",
+          "text": "Costing a lot of money"
+        },
+        {
+          "id": "D",
+          "text": "Free"
+        }
+      ],
+      "correctAnswer": "C"
+    },
+    {
+      "id": "q14",
+      "examId": "id-exam3-1752750000003",
+      "content": "Choose the synonym of 'happy':",
+      "topic": [
+        "Reading"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "sad"
+        },
+        {
+          "id": "B",
+          "text": "angry"
+        },
+        {
+          "id": "C",
+          "text": "joyful"
+        },
+        {
+          "id": "D",
+          "text": "mad"
+        }
+      ],
+      "correctAnswer": "C"
+    },
+    {
+      "id": "q15",
+      "examId": "id-exam4-1752750000004",
+      "content": "Which word means 'fast'?",
+      "topic": [
+        "Vocabulary"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "slow"
+        },
+        {
+          "id": "B",
+          "text": "quick"
+        },
+        {
+          "id": "C",
+          "text": "lazy"
+        },
+        {
+          "id": "D",
+          "text": "late"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "q16",
+      "examId": "id-exam4-1752750000004",
+      "content": "What is the opposite of 'happy'?",
+      "topic": [
+        "Vocabulary"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "glad"
+        },
+        {
+          "id": "B",
+          "text": "sad"
+        },
+        {
+          "id": "C",
+          "text": "excited"
+        },
+        {
+          "id": "D",
+          "text": "delighted"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "q17",
+      "examId": "id-exam4-1752750000004",
+      "content": "Choose the correct spelling:",
+      "topic": [
+        "Vocabulary"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "definately"
+        },
+        {
+          "id": "B",
+          "text": "definitely"
+        },
+        {
+          "id": "C",
+          "text": "definitly"
+        },
+        {
+          "id": "D",
+          "text": "definetely"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "q18",
+      "examId": "id-exam4-1752750000004",
+      "content": "Which is a verb?",
+      "topic": [
+        "Vocabulary"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "run"
+        },
+        {
+          "id": "B",
+          "text": "blue"
+        },
+        {
+          "id": "C",
+          "text": "fast"
+        },
+        {
+          "id": "D",
+          "text": "happy"
         }
       ],
       "correctAnswer": "A"
+    },
+    {
+      "id": "q19",
+      "examId": "id-exam5-1752750000005",
+      "content": "If I ___ you, I would apologize.",
+      "topic": [
+        "Grammar"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "was"
+        },
+        {
+          "id": "B",
+          "text": "were"
+        },
+        {
+          "id": "C",
+          "text": "am"
+        },
+        {
+          "id": "D",
+          "text": "be"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "q20",
+      "examId": "id-exam5-1752750000005",
+      "content": "He said he ___ finished the report.",
+      "topic": [
+        "Grammar"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "has"
+        },
+        {
+          "id": "B",
+          "text": "had"
+        },
+        {
+          "id": "C",
+          "text": "have"
+        },
+        {
+          "id": "D",
+          "text": "was"
+        }
+      ],
+      "correctAnswer": "B"
+    },
+    {
+      "id": "q21",
+      "examId": "id-exam5-1752750000005",
+      "content": "Identify the passive voice: 'The book was read by Mary.'",
+      "topic": [
+        "Grammar"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "Passive"
+        },
+        {
+          "id": "B",
+          "text": "Active"
+        },
+        {
+          "id": "C",
+          "text": "Future"
+        },
+        {
+          "id": "D",
+          "text": "Past Continuous"
+        }
+      ],
+      "correctAnswer": "A"
+    },
+    {
+      "id": "q22",
+      "examId": "id-exam5-1752750000005",
+      "content": "She wishes she ___ taller.",
+      "topic": [
+        "Grammar"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "is"
+        },
+        {
+          "id": "B",
+          "text": "was"
+        },
+        {
+          "id": "C",
+          "text": "were"
+        },
+        {
+          "id": "D",
+          "text": "am"
+        }
+      ],
+      "correctAnswer": "C"
+    },
+    {
+      "id": "q23",
+      "examId": "id-exam5-1752750000005",
+      "content": "Neither John nor his friends ___ going to the party.",
+      "topic": [
+        "Grammar"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "is"
+        },
+        {
+          "id": "B",
+          "text": "was"
+        },
+        {
+          "id": "C",
+          "text": "are"
+        },
+        {
+          "id": "D",
+          "text": "am"
+        }
+      ],
+      "correctAnswer": "C"
     }
   ],
   "admins": [
@@ -101,88 +705,80 @@
       "password": "123456",
       "role": "user",
       "status": "active"
+    },
+    {
+      "id": "2",
+      "username": "user2",
+      "fullName": "Nguyễn Văn B",
+      "password": "123456",
+      "role": "user",
+      "status": "active"
     }
   ],
   "history-exam": [
     {
-      "id": "5159",
-      "userId": 1,
-      "examId": null,
-      "examName": "Bài thi cơ bản",
-      "duration": 30,
-      "questionsCount": 3,
+      "id": "d8d6",
+      "userId": "1",
+      "examId": "id-exam1-1752750000001",
+      "examName": "Bài thi tiếng Anh A1",
+      "duration": 15,
+      "questionsCount": 5,
+      "level": "Dễ",
+      "topics": [
+        "Grammar",
+        "Vocabulary"
+      ],
+      "totalCorrect": 4,
+      "percent": 80,
+      "dateTaken": "2025-07-17T15:57:08.712Z"
+    },
+    {
+      "id": "b1d9",
+      "userId": "1",
+      "examId": "id-exam1-1752750000001",
+      "examName": "Bài thi tiếng Anh A1",
+      "duration": 15,
+      "questionsCount": 5,
+      "level": "Dễ",
+      "topics": [
+        "Grammar",
+        "Vocabulary"
+      ],
+      "totalCorrect": 5,
+      "percent": 100,
+      "dateTaken": "2025-07-17T16:05:37.430Z"
+    },
+    {
+      "id": "76c8",
+      "userId": "2",
+      "examId": "id-exam1-1752750000001",
+      "examName": "Bài thi tiếng Anh A1",
+      "duration": 15,
+      "questionsCount": 5,
+      "level": "Dễ",
+      "topics": [
+        "Grammar",
+        "Vocabulary"
+      ],
+      "totalCorrect": 5,
+      "percent": 100,
+      "dateTaken": "2025-07-17T16:10:00.248Z"
+    },
+    {
+      "id": "7c61",
+      "userId": "2",
+      "examId": "id-exam2-1752750000002",
+      "examName": "Bài thi tiếng Anh A2",
+      "duration": 15,
+      "questionsCount": 5,
       "level": "Dễ",
       "topics": [
         "Grammar",
         "Vocabulary"
       ],
       "totalCorrect": 1,
-      "percent": 33,
-      "dateTaken": "2025-07-15T17:39:43.489Z"
-    },
-    {
-      "id": "c5e6",
-      "userId": 1,
-      "examId": null,
-      "examName": "Bài thi cơ bản",
-      "duration": 30,
-      "questionsCount": 3,
-      "level": "Dễ",
-      "topics": [
-        "Grammar",
-        "Vocabulary"
-      ],
-      "totalCorrect": 2,
-      "percent": 67,
-      "dateTaken": "2025-07-15T17:56:02.907Z"
-    },
-    {
-      "id": "6deb",
-      "userId": "1",
-      "examId": null,
-      "examName": "Bài thi cơ bản",
-      "duration": 30,
-      "questionsCount": 3,
-      "level": "Dễ",
-      "topics": [
-        "Grammar",
-        "Vocabulary"
-      ],
-      "totalCorrect": 0,
-      "percent": 0,
-      "dateTaken": "2025-07-16T01:53:40.412Z"
-    },
-    {
-      "id": "ed94",
-      "userId": "1",
-      "examId": null,
-      "examName": "Bài thi cơ bản",
-      "duration": 30,
-      "questionsCount": 3,
-      "level": "Dễ",
-      "topics": [
-        "Grammar",
-        "Vocabulary"
-      ],
-      "totalCorrect": 3,
-      "percent": 100,
-      "dateTaken": "2025-07-16T09:31:14.612Z"
-    },
-    {
-      "id": "d724",
-      "userId": "1",
-      "examId": "id-bevr4l8xd-1752747162565",
-      "examName": "123",
-      "duration": 30,
-      "questionsCount": 1,
-      "level": "Dễ",
-      "topics": [
-        "Grammar",
-        "Vocabulary"
-      ],
-      "totalCorrect": 1,
-      "percent": 100,
-      "dateTaken": "2025-07-17T10:15:57.012Z"
+      "percent": 20,
+      "dateTaken": "2025-07-17T16:14:00.614Z"
     }
   ]
 }

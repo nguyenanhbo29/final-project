@@ -62,13 +62,14 @@ export default function ListExam({
                 activeExam?.id === exam?.id ? "bg-purple-100!" : ""
               )}
             >
-              <div className="flex justify-between">
+              <div className="flex justify-between gap-4">
                 <div>
                   <h3 className="text-lg font-semibold">{exam?.title}</h3>
                   <p>{exam?.description}</p>
                 </div>
                 <Button
                   variant="default"
+                  className="min-w-16!"
                   onClick={async () => {
                     await axios.delete(
                       `http://localhost:3001/exams/${exam.id}`
@@ -78,7 +79,7 @@ export default function ListExam({
                     });
                   }}
                 >
-                  <IconTrash color="red" />
+                  <IconTrash color="red" size={16} />
                 </Button>
               </div>
               <div className="flex justify-between mt-6">

@@ -47,6 +47,7 @@ export default function ModalAddEditQuestion({
         opened={opened}
         centered
         size={"lg"}
+        className="max-h-400px!"
         onClose={close}
         title={<p className="text-lg font-semibold">Thêm đề thi mới</p>}
       >

@@ -181,7 +181,7 @@ export default function HomeResult() {
                         {item?.percent}%
                       </p>
                       <Progress
-                        value={item?.duration}
+                        value={item?.percent}
                         size="sm"
                         radius="xl"
                         className="w-24 mt-1"

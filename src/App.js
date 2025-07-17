@@ -12,6 +12,7 @@ import LoginPage from "./login/LoginPage";
 import HomeAdmin from "./admin/home-admin/HomeAdmin";
 
 function AppContent() {
+  
   return (
     <div className="static">
       <Header />
