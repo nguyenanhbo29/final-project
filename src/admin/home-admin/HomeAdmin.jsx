@@ -12,12 +12,16 @@ import axios from "axios";
 
 export default function HomeAdmin() {
   const [exams, setExams] = useState([]);
-  const [activeExam, setActiveExam] = useState({});
-
+  const [activeExam, setActiveExam] = useState(null);
+  const [users, setUsers] = useState(null);
   useEffect(() => {
     axios
       .get("http://localhost:3001/exams")
       .then((res) => setExams(res.data))
+      .catch((err) => console.error("Lỗi khi lấy dữ liệu đề thi:", err));
+    axios
+      .get("http://localhost:3001/users")
+      .then((res) => setUsers(res.data))
       .catch((err) => console.error("Lỗi khi lấy dữ liệu đề thi:", err));
   }, []);
 
@@ -43,37 +47,7 @@ export default function HomeAdmin() {
                 <IconStar size={24} stroke={1.5} color="white" />
               </div>
             </div>
-            <h1>2</h1>
-          </Card>
-          <Card
-            shadow="sm"
-            padding="lg"
-            radius="md"
-            withBorder
-            className="bg-purple-500! text-white!"
-          >
-            <div className="flex justify-between items-center">
-              <h3 className="font-semibold">Tổng số bài</h3>
-              <div className="w-12 h-12  rounded-full flex justify-center items-center">
-                <IconBook size={24} stroke={1.5} color="white" />
-              </div>
-            </div>
-            <h1>3</h1>
-          </Card>
-          <Card
-            shadow="sm"
-            padding="lg"
-            radius="md"
-            withBorder
-            className="bg-green-500! text-white!"
-          >
-            <div className="flex justify-between items-center">
-              <h3 className="font-semibold">Đề đang hoạt động</h3>
-              <div className="w-12 h-12 rounded-full flex justify-center items-center">
-                <IconAward size={24} stroke={1.5} color="white" />
-              </div>
-            </div>
-            <p>2</p>
+            <h1>{exams.length}</h1>
           </Card>
           <Card
             shadow="sm"
@@ -88,7 +62,7 @@ export default function HomeAdmin() {
                 <IconTimeDuration0 size={24} stroke={1.5} color="white" />
               </div>
             </div>
-            <p>156</p>
+            <p>{users?.length}</p>
           </Card>
         </div>
       </div>

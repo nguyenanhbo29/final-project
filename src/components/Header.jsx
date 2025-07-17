@@ -23,7 +23,7 @@ export function Header() {
                 <p>{account.username}</p>
                 <Button
                   onClick={() => {
-                    localStorage.setItem("account", null);
+                    localStorage.removeItem("account");
                     navigate("/");
                   }}
                   variant="subtle"

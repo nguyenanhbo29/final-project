@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 
 export default function Home() {
   const navigate = useNavigate();
+  const account = JSON.parse(localStorage.getItem("account"));
+
   return (
     <div className="py-12 px-20 bg-purple-50 h-screen">
       <div className="flex flex-col items-center gap-6">
@@ -19,23 +21,48 @@ export default function Home() {
           nhật liên tục. Nâng cao trình độ tiếng Anh của bạn một cách hiệu quả
           và thú vị.
         </p>
-        <div className="flex gap-4">
-          <Button
-            onClick={() => {
-              navigate("/login");
-            }}
-          >
-            Bắt đầu luyện thi
-          </Button>
-          <Button
-            variant="default"
-            onClick={() => {
-              navigate("/login");
-            }}
-          >
-            Quản lý hệ thống
-          </Button>
-        </div>
+        {!account && (
+          <div className="flex gap-4">
+            <Button
+              onClick={() => {
+                navigate("/login");
+              }}
+            >
+              Bắt đầu luyện thi
+            </Button>
+            <Button
+              variant="default"
+              onClick={() => {
+                navigate("/login");
+              }}
+            >
+              Quản lý hệ thống
+            </Button>
+          </div>
+        )}
+        {account?.role === "user" && (
+          <>
+            <Button
+              onClick={() => {
+                navigate("/login");
+              }}
+            >
+              Bắt đầu luyện thi
+            </Button>
+          </>
+        )}
+        {account?.role === "admin" && (
+          <>
+            <Button
+              variant="default"
+              onClick={() => {
+                navigate("/login");
+              }}
+            >
+              Quản lý hệ thống
+            </Button>
+          </>
+        )}
       </div>
       <div className="grid grid-cols-3 gap-12 mt-12">
         <Card shadow="sm" padding="lg" radius="md" withBorder>
@@ -45,8 +72,8 @@ export default function Home() {
             </div>
             <h3 className="text-xl font-bold">Luyện tập hiệu quả</h3>
             <p className="text-gray-600">
-              Hệ thống câu hỏi đa dạng với các cấp độ khác nhau, giúp bạn luyện
-              tập và cải thiện kỹ năng tiếng Anh một cách có hệ thống.
+              Mô phỏng điều kiện thi thực tế với thời gian giới hạn, giúp bạn
+              làm quen và chuẩn bị tốt nhất cho kỳ thi quan trọng.
             </p>
           </div>
         </Card>
@@ -55,10 +82,10 @@ export default function Home() {
             <div className="w-16 h-16 bg-purple-600 rounded-full flex justify-center items-center">
               <IconClockPlus color="white" size={24} stroke={1.5} />
             </div>
-            <h3 className="text-xl font-bold">Luyện tập hiệu quả</h3>
+            <h3 className="text-xl font-bold">Theo Dõi Tiến Bộ</h3>
             <p className="text-gray-600">
-              Hệ thống câu hỏi đa dạng với các cấp độ khác nhau, giúp bạn luyện
-              tập và cải thiện kỹ năng tiếng Anh một cách có hệ thống.
+              Xem chi tiết kết quả, phân tích điểm mạnh điểm yếu và theo dõi
+              tiến bộ học tập qua từng bài thi để cải thiện hiệu quả.
             </p>
           </div>
         </Card>

@@ -27,11 +27,6 @@ export default function HomeUser() {
     return item.userId + "" === account.id;
   });
 
-  const maxPercent = Math.max(...historyExamsByMe.map((item) => item.percent));
-  const totalDuration = historyExamsByMe.reduce(
-    (sum, exam) => sum + exam.duration,
-    0
-  );
   const totalPercent = historyExamsByMe.reduce(
     (sum, exam) => sum + exam.percent,
     0
@@ -183,26 +178,29 @@ export default function HomeUser() {
           </h3>
 
           <div className="mt-4 space-y-3">
-            {historyExamsByMe?.slice(0, 3).map((item) => {
-              return (
-                <Card padding="md" withBorder radius="md">
-                  <div className="flex justify-between items-center">
-                    <div>
-                      <h4 className="font-semibold">{item.examName}</h4>
-                      <p className="text-sm text-gray-600">
-                        {formatDate(item?.dateTaken)} · {item.duration} phút
-                      </p>
-                    </div>
-                    <div className="text-right">
-                      <div className="bg-gray-800 text-white px-3 py-1 rounded-full text-sm font-bold">
-                        {item.totalCorrect}/{item.questionsCount}
+            {historyExamsByMe
+              ?.sort((a, b) => new Date(b.dateTaken) - new Date(a.dateTaken))
+              ?.slice(0, 3)
+              .map((item) => {
+                return (
+                  <Card padding="md" withBorder radius="md">
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <h4 className="font-semibold">{item.examName}</h4>
+                        <p className="text-sm text-gray-600">
+                          {formatDate(item?.dateTaken)} · {item.duration} phút
+                        </p>
                       </div>
-                      <p className="text-sm">{item.percent}%</p>
+                      <div className="text-right">
+                        <div className="bg-gray-800 text-white px-3 py-1 rounded-full text-sm font-bold">
+                          {item.totalCorrect}/{item.questionsCount}
+                        </div>
+                        <p className="text-sm">{item.percent}%</p>
+                      </div>
                     </div>
-                  </div>
-                </Card>
-              );
-            })}
+                  </Card>
+                );
+              })}
           </div>
         </Card>
       </div>

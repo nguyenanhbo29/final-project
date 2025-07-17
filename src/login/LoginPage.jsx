@@ -10,8 +10,8 @@ export default function LoginPage() {
   const [listUser, setListUser] = useState([]);
   const [listAdmin, setListAdmin] = useState([]);
   const [error, setError] = useState("");
-
   const navigation = useNavigate();
+  const account = JSON.parse(localStorage.getItem("account"));
 
   useEffect(() => {
     axios
@@ -31,7 +31,14 @@ export default function LoginPage() {
       password: "",
     },
   });
-
+  if (account) {
+    if (account.role === "user") {
+      navigation("/home/user");
+    } else {
+      navigation("/home/admin");
+    }
+    return;
+  }
   return (
     <div className="flex justify-center items-center h-screen">
       <Card shadow="sm" padding="sm" radius="md" withBorder>

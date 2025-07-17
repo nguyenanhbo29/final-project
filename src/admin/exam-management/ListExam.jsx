@@ -2,6 +2,7 @@ import {
   Button,
   Card,
   Modal,
+  MultiSelect,
   NumberInput,
   Select,
   Textarea,
@@ -28,7 +29,7 @@ export default function ListExam({
       description: "",
       duration: 30,
       level: "Dễ",
-      topic: ["grammar"],
+      topics: ["Grammar"],
       type: "Trắc nghiệm",
     },
   });
@@ -81,7 +82,6 @@ export default function ListExam({
                 </Button>
               </div>
               <div className="flex justify-between mt-6">
-                <p className="text-gray-500">{exam?.questionsCount} câu hỏi</p>
                 <p className="text-gray-500">{exam?.duration} phút</p>
               </div>
             </Card>
@@ -92,6 +92,7 @@ export default function ListExam({
         <Modal
           opened={opened}
           centered
+          size={"lg"}
           onClose={close}
           title={<p className="text-lg font-semibold">Thêm đề thi mới</p>}
         >
@@ -104,7 +105,7 @@ export default function ListExam({
                 questionsCount: 0,
                 duration: values.duration,
                 level: values.level,
-                topics: ["Grammar", "Vocabulary"],
+                topics: values.topics,
                 type: values.type,
               };
               axios
@@ -151,9 +152,16 @@ export default function ListExam({
               label="Level"
               key={form.key("level")}
               className="mt-4"
-              min={1}
               data={["Dễ", "Trung bình", "Khó"]}
               {...form.getInputProps("level")}
+            />{" "}
+            <MultiSelect
+              withAsterisk
+              label="Chủ đề"
+              key={form.key("topics")}
+              className="mt-4"
+              data={["Grammar", "Vocab"]}
+              {...form.getInputProps("topics")}
             />
             <Select
               withAsterisk

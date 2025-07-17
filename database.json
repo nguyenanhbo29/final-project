@@ -1,162 +1,86 @@
 {
   "exams": [
     {
-      "id": "1",
-      "title": "Bài thi cơ bản",
-      "description": "Bài thi dành cho người mới bắt đầu",
-      "questionsCount": 3,
+      "id": "id-bevr4l8xd-1752747162565",
+      "title": "123",
+      "description": "123",
+      "questionsCount": 1,
       "duration": 30,
       "level": "Dễ",
       "topics": [
         "Grammar",
         "Vocabulary"
       ],
-      "type": "trắc nghiệm"
+      "type": "Trắc nghiệm"
     },
     {
-      "id": "2",
-      "title": "Bài thi nâng cao",
-      "description": "Bài thi dành cho người có trình độ cao",
-      "questionsCount": 2,
-      "duration": 45,
-      "level": "Trung bình",
+      "id": "id-myb4ht641-1752747746897",
+      "title": "124",
+      "description": "1234",
+      "questionsCount": 1,
+      "duration": 30,
+      "level": "Dễ",
       "topics": [
         "Grammar",
-        "Vocabulary"
+        "Vocab"
       ],
-      "type": "trắc nghiệm"
+      "type": "Trắc nghiệm"
     }
   ],
   "questions": [
     {
-      "id": "1",
-      "examId": 1,
-      "content": "What is the synonym of 'quick'?",
-      "level": "Dễ",
-      "topic": "Grammar",
+      "id": "id-5zxnxph6d-1752747333211",
+      "examId": "id-bevr4l8xd-1752747162565",
+      "content": "123",
+      "topic": [
+        "Grammar"
+      ],
       "options": [
         {
           "id": "A",
-          "text": "Slow"
+          "text": "123"
         },
         {
           "id": "B",
-          "text": "Fast"
+          "text": "123"
         },
         {
           "id": "C",
-          "text": "Quiet"
+          "text": "123"
         },
         {
           "id": "D",
-          "text": "Tall"
+          "text": "132"
         }
       ],
-      "correctAnswer": "B"
+      "correctAnswer": "A"
     },
     {
-      "id": "2",
-      "examId": 1,
-      "content": "Choose the correct sentence:",
-      "level": "Dễ",
-      "topic": "Grammar",
+      "id": "id-fi1cqfe5t-1752747761129",
+      "examId": "id-myb4ht641-1752747746897",
+      "content": "123",
+      "topic": [
+        "Grammar"
+      ],
       "options": [
         {
           "id": "A",
-          "text": "She go to school."
+          "text": "123"
         },
         {
           "id": "B",
-          "text": "She goes to school."
+          "text": "123"
         },
         {
           "id": "C",
-          "text": "She going to school."
+          "text": "123"
         },
         {
           "id": "D",
-          "text": "She gone to school."
+          "text": "132123"
         }
       ],
-      "correctAnswer": "B"
-    },
-    {
-      "id": "3",
-      "examId": 1,
-      "content": "Which word is a noun?",
-      "level": "Trung bình",
-      "topic": "Vocabulary",
-      "options": [
-        {
-          "id": "A",
-          "text": "Quickly"
-        },
-        {
-          "id": "B",
-          "text": "Beautiful"
-        },
-        {
-          "id": "C",
-          "text": "Happiness"
-        },
-        {
-          "id": "D",
-          "text": "Run"
-        }
-      ],
-      "correctAnswer": "C"
-    },
-    {
-      "id": "4",
-      "examId": 2,
-      "content": "Select the correct past tense of 'eat':",
-      "level": "Trung bình",
-      "topic": "Grammar",
-      "options": [
-        {
-          "id": "A",
-          "text": "Eated"
-        },
-        {
-          "id": "B",
-          "text": "Ate"
-        },
-        {
-          "id": "C",
-          "text": "Eat"
-        },
-        {
-          "id": "D",
-          "text": "Eating"
-        }
-      ],
-      "correctAnswer": "B"
-    },
-    {
-      "id": "5",
-      "examId": 2,
-      "content": "What does 'bilingual' mean?",
-      "level": "Khó",
-      "topic": "Vocabulary",
-      "options": [
-        {
-          "id": "A",
-          "text": "Able to fly"
-        },
-        {
-          "id": "B",
-          "text": "Able to speak two languages"
-        },
-        {
-          "id": "C",
-          "text": "Able to draw well"
-        },
-        {
-          "id": "D",
-          "text": "Able to write poems"
-        }
-      ],
-      "correctAnswer": "B"
+      "correctAnswer": "A"
     }
   ],
   "admins": [
@@ -183,7 +107,7 @@
     {
       "id": "5159",
       "userId": 1,
-      "examId": "1",
+      "examId": null,
       "examName": "Bài thi cơ bản",
       "duration": 30,
       "questionsCount": 3,
@@ -199,7 +123,7 @@
     {
       "id": "c5e6",
       "userId": 1,
-      "examId": "1",
+      "examId": null,
       "examName": "Bài thi cơ bản",
       "duration": 30,
       "questionsCount": 3,
@@ -215,7 +139,7 @@
     {
       "id": "6deb",
       "userId": "1",
-      "examId": "1",
+      "examId": null,
       "examName": "Bài thi cơ bản",
       "duration": 30,
       "questionsCount": 3,
@@ -231,7 +155,7 @@
     {
       "id": "ed94",
       "userId": "1",
-      "examId": "1",
+      "examId": null,
       "examName": "Bài thi cơ bản",
       "duration": 30,
       "questionsCount": 3,
@@ -243,6 +167,22 @@
       "totalCorrect": 3,
       "percent": 100,
       "dateTaken": "2025-07-16T09:31:14.612Z"
+    },
+    {
+      "id": "d724",
+      "userId": "1",
+      "examId": "id-bevr4l8xd-1752747162565",
+      "examName": "123",
+      "duration": 30,
+      "questionsCount": 1,
+      "level": "Dễ",
+      "topics": [
+        "Grammar",
+        "Vocabulary"
+      ],
+      "totalCorrect": 1,
+      "percent": 100,
+      "dateTaken": "2025-07-17T10:15:57.012Z"
     }
   ]
 }

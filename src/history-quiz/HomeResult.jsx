@@ -39,14 +39,8 @@ export default function HomeResult() {
   );
   return (
     <div>
-      <Card shadow="sm" padding="sm" radius="md" withBorder>
-        <div className="flex justify-center gap-160">
-          <div className="flex items-center gap-8">
-            <IconBook size={48} stroke={1.5} className="text-blue-500" />
-            <h3 className="font-bold text-2xl bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">
-              Lịch sử thi
-            </h3>
-          </div>
+      <div className="mt-6">
+        <div className="flex justify-between px-4">
           <Button
             variant="default"
             onClick={() => {
@@ -59,7 +53,7 @@ export default function HomeResult() {
             </div>
           </Button>
         </div>
-      </Card>
+      </div>
       <div className="grid grid cols gap-8">
         <div className="grid grid-cols-4 gap-8 mt-12 px-4">
           <Card
